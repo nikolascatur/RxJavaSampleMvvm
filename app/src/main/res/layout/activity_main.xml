@@ -1,0 +1,35 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <import type="android.view.View" />
+
+        <variable
+            name="handler"
+            type="phone.nikolas.com.rxjavasamplemvvm.activity.main.MainHandler"
+            />
+        <variable
+            name="viewModel"
+            type="phone.nikolas.com.rxjavasamplemvvm.activity.main.MainViewModel" />
+        </data>
+<RelativeLayout
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    tools:context=".activity.main.MainActivity">
+    <LinearLayout
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/registration_demo"
+            android:id="@+id/btn_registration_demo"
+            />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+    </layout>
