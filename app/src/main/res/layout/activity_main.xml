@@ -25,6 +25,34 @@
             android:layout_height="wrap_content"
             android:text="@string/registration_demo"
             android:id="@+id/btn_registration_demo"
+            android:onClick="@{(view) -> handler.clickButtonRegistration()}"
+            />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_hide_email"
+            android:text="GONE"
+            android:onClick="@{(view) -> handler.clickButtonVisible()}"
+            />
+        <Button
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:id="@+id/btn_fetch_email"
+            android:onClick="@{(view) -> handler.clickFetchEmail()}"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvEmail"
+            android:text="@{viewModel.emailText}"
+            android:visibility="@{viewModel.visibilityEmail}"
+            />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             />
 
         </LinearLayout>

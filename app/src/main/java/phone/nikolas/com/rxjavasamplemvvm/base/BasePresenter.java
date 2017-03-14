@@ -5,8 +5,8 @@ package phone.nikolas.com.rxjavasamplemvvm.base;
  */
 
 public abstract class BasePresenter<V,VM> {
-    private V view;
-    private VM viewModel;
+    public V view;
+    public VM viewModel;
 
     public void setView(V view) {
         this.view = view;

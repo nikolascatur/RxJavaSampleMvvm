@@ -1,5 +1,7 @@
 package phone.nikolas.com.rxjavasamplemvvm.activity.main;
 
+import android.databinding.Bindable;
+
 /**
  * Created by Pleret on 3/11/2017.
  */
@@ -14,4 +16,18 @@ public class MainHandler {
     public void setPresenter(MainPresenter presenter) {
         this.presenter = presenter;
     }
+
+    public void clickButtonRegistration(){
+        presenter.setText();
+    }
+
+    public void clickButtonVisible(){
+        presenter.setVisible();
+    }
+
+    public void clickFetchEmail(){
+        presenter.getEmailList();
+    }
+
+
 }
