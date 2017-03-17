@@ -1,5 +1,6 @@
 package phone.nikolas.com.rxjavasamplemvvm.activity.main;
 
+import android.content.Intent;
 import android.databinding.Bindable;
 
 /**
@@ -22,7 +23,9 @@ public class MainHandler {
     }
 
     public void clickButtonVisible(){
-        presenter.setVisible();
+//        presenter.setVisible();
+        presenter.showInputAddress();
+
     }
 
     public void clickFetchEmail(){

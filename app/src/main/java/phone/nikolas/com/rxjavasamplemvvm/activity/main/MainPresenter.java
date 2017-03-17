@@ -27,6 +27,10 @@ public class MainPresenter extends BasePresenter<MainView,MainViewModel> {
 
     }
 
+    public void showInputAddress(){
+        view.moveToInputAddress();
+    }
+
     public void setVisible(){
         viewModel.setVisibilityEmail(View.GONE);
     }

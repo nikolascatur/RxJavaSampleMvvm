@@ -1,0 +1,80 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="handler"
+            type="phone.nikolas.com.rxjavasamplemvvm.activity.inputaddress.InputAddressHandler" />
+
+        <variable
+            name="viewModel"
+            type="phone.nikolas.com.rxjavasamplemvvm.activity.inputaddress.InputAddressViewModel" />
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/activity_horizontal_margin">
+
+        <LinearLayout
+            android:id="@+id/layout_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/input_name" />
+
+            <EditText
+                android:id="@+id/et_input_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@={viewModel.name}"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_inputEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/layout_name"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/email" />
+
+            <EditText
+                android:id="@+id/et_input_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@={viewModel.address}"
+                />
+
+        </LinearLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/list_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ll_inputEmail">
+
+        </android.support.v7.widget.RecyclerView>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:onClick="@{(view) -> handler.clickButtonSubmit()}"
+            android:text="@string/submit" />
+
+    </RelativeLayout>
+
+</layout>

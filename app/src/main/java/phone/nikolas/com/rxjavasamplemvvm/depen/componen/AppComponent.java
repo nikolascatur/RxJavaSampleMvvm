@@ -4,6 +4,7 @@ import javax.inject.Singleton;
 
 import dagger.Component;
 import dagger.Module;
+import phone.nikolas.com.rxjavasamplemvvm.activity.inputaddress.InputAddressActivity;
 import phone.nikolas.com.rxjavasamplemvvm.activity.main.MainActivity;
 import phone.nikolas.com.rxjavasamplemvvm.depen.module.AppModule;
 import phone.nikolas.com.rxjavasamplemvvm.depen.module.NetworkModule;
@@ -17,4 +18,5 @@ import phone.nikolas.com.rxjavasamplemvvm.networking.NetworkService;
 @Component(modules = {AppModule.class, NetworkModule.class})
 public interface AppComponent {
     void inject(MainActivity mainActivity);
+    void inject(InputAddressActivity inputAddressActivity);
 }
