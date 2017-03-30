@@ -21,6 +21,10 @@ public class DetailNotePresenter extends BasePresenter<DetailNoteView,DetailNote
         view.closeDetailActivity();
     }
 
+    public void editTextDetail(String text){
+        viewModel.setNoteText(text);
+    }
+
 /*
     public List<Note> getNotes() {
         return notes;

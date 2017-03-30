@@ -9,6 +9,8 @@ import android.util.Log;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
 import phone.nikolas.com.rxjavasamplemvvm.BaseApp;
 import phone.nikolas.com.rxjavasamplemvvm.R;
 import phone.nikolas.com.rxjavasamplemvvm.activity.detailnote.DetailNoteActivity;
@@ -18,12 +20,16 @@ import phone.nikolas.com.rxjavasamplemvvm.base.BaseActivity;
 import phone.nikolas.com.rxjavasamplemvvm.databinding.ActivityInputBinding;
 import phone.nikolas.com.rxjavasamplemvvm.databinding.ActivityNoteBinding;
 import phone.nikolas.com.rxjavasamplemvvm.model.Note;
+import phone.nikolas.com.rxjavasamplemvvm.model.Notes;
 
 /**
  * Created by Pleret on 3/18/2017.
  */
 
 public class NoteActivity  extends BaseActivity<ActivityNoteBinding,NoteViewModel,NotePresenter> implements NoteView{
+    @Inject
+    Notes listNote;
+
     @Override
     protected void initInjection() {
         ((BaseApp)getApplication()).getmAppComponent().inject(this);
@@ -66,7 +72,7 @@ public class NoteActivity  extends BaseActivity<ActivityNoteBinding,NoteViewMode
 
     @Override
     public List<Note> listNote() {
-        return ((BaseApp)getApplication()).getmAppComponent().getNotes().getNoteList();
+        return listNote.getNoteList(); //((BaseApp)getApplication()).getmAppComponent().getNotes().getNoteList();
     }
 
     @Override

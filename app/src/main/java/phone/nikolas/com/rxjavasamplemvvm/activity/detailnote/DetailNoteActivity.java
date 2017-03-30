@@ -7,18 +7,24 @@ import android.util.Log;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
 import phone.nikolas.com.rxjavasamplemvvm.BaseApp;
 import phone.nikolas.com.rxjavasamplemvvm.R;
 import phone.nikolas.com.rxjavasamplemvvm.activity.note.NoteActivity;
 import phone.nikolas.com.rxjavasamplemvvm.base.BaseActivity;
 import phone.nikolas.com.rxjavasamplemvvm.databinding.ActivityDetailNoteBinding;
 import phone.nikolas.com.rxjavasamplemvvm.model.Note;
+import phone.nikolas.com.rxjavasamplemvvm.model.Notes;
 
 /**
  * Created by Pleret on 3/22/2017.
  */
 
 public class DetailNoteActivity extends BaseActivity<ActivityDetailNoteBinding,DetailNoteViewModel,DetailNotePresenter> implements DetailNoteView {
+    @Inject
+    Notes listNote;
+
     @Override
     protected void initInjection() {
         ((BaseApp)getApplication()).getmAppComponent().inject(this);
@@ -53,8 +59,8 @@ public class DetailNoteActivity extends BaseActivity<ActivityDetailNoteBinding,D
             int value = extras.getInt("VALUE");
             Log.d("TAG","valuee ::  "+value);
             if(value >= 0){
-                Note note = ((BaseApp)getApplication()).getmAppComponent().getNotes().getNoteList().get(value);
-                presenter.viewModel.setNoteText(note.getNoteDetail());
+                Note note = listNote.getNoteList().get(value); //((BaseApp)getApplication()).getmAppComponent().getNotes().getNoteList().get(value);
+                presenter.editTextDetail(note.getNoteDetail());
             }
         }
     }
@@ -68,8 +74,9 @@ public class DetailNoteActivity extends BaseActivity<ActivityDetailNoteBinding,D
 
     @Override
     public void addNote(String note) {
-        ((BaseApp)getApplication()).getmAppComponent().getNotes().addNote(note);
-        List<Note> tmp = ((BaseApp)getApplication()).getmAppComponent().getNotes().getNoteList();
+        //((BaseApp)getApplication()).getmAppComponent().getNotes().addNote(note);
+        listNote.addNote(note);
+        List<Note> tmp = listNote.getNoteList(); //((BaseApp)getApplication()).getmAppComponent().getNotes().getNoteList();
         for (Note data: tmp
              ) {
             Log.d("TAG"," isi note  "+data.getNoteDetail());

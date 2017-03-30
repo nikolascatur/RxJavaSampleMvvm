@@ -21,4 +21,6 @@ public class DetailNoteViewModel extends BaseObservable {
         this.noteText = noteText;
         notifyPropertyChanged(BR.noteText);
     }
+
+
 }
