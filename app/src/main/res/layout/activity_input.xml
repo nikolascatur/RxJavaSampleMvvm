@@ -29,6 +29,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:text="@string/input_name" />
 
             <EditText
@@ -36,6 +37,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@={viewModel.name}"
+                android:layout_weight="2"
                 />
         </LinearLayout>
 
@@ -49,13 +51,16 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/email" />
+                android:text="@string/email"
+                android:layout_weight="1"
+                />
 
             <EditText
                 android:id="@+id/et_input_email"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@={viewModel.address}"
+                android:layout_weight="2"
                 />
 
         </LinearLayout>
@@ -73,7 +78,9 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:onClick="@{(view) -> handler.clickButtonSubmit()}"
-            android:text="@string/submit" />
+            android:text="@string/submit"
+            android:visibility="@{viewModel.isVisible ? View.VISIBLE:View.GONE}"
+            />
 
     </RelativeLayout>
 

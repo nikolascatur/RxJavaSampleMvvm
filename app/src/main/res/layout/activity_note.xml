@@ -1,0 +1,34 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="phone.nikolas.com.rxjavasamplemvvm.activity.note.NoteViewModel" />
+
+        <variable
+            name="handler"
+            type="phone.nikolas.com.rxjavasamplemvvm.activity.note.NoteHandler" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/buttonAdd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/add"
+            android:onClick="@{(View) -> handler.onCickButton()}"
+            />
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_listNote"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+</layout>

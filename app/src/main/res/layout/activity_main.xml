@@ -1,63 +1,69 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+
     <data>
+
         <import type="android.view.View" />
 
         <variable
             name="handler"
-            type="phone.nikolas.com.rxjavasamplemvvm.activity.main.MainHandler"
-            />
+            type="phone.nikolas.com.rxjavasamplemvvm.activity.main.MainHandler" />
+
         <variable
             name="viewModel"
             type="phone.nikolas.com.rxjavasamplemvvm.activity.main.MainViewModel" />
-        </data>
-<RelativeLayout
-    android:layout_height="match_parent"
-    android:layout_width="match_parent"
-    tools:context=".activity.main.MainActivity">
-    <LinearLayout
-        android:layout_width="220dp"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:orientation="vertical">
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/registration_demo"
-            android:id="@+id/btn_registration_demo"
-            android:onClick="@{(view) -> handler.clickButtonRegistration()}"
-            />
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/btn_hide_email"
-            android:text="GONE"
-            android:onClick="@{(view) -> handler.clickButtonVisible()}"
-            />
-        <Button
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:id="@+id/btn_fetch_email"
-            android:onClick="@{(view) -> handler.clickFetchEmail()}"
-            />
+    </data>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/tvEmail"
-            android:text="@{viewModel.emailText}"
-            android:visibility="@{viewModel.visibilityEmail}"
-            />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".activity.main.MainActivity">
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/list"
-            android:layout_width="match_parent"
+        <LinearLayout
+            android:layout_width="220dp"
             android:layout_height="wrap_content"
-            />
+            android:layout_centerInParent="true"
+            android:orientation="vertical">
 
+            <Button
+                android:id="@+id/btn_registration_demo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="@{(view) -> handler.clickButtonRegistration()}"
+                android:text="@string/registration_demo" />
+
+            <Button
+                android:id="@+id/btn_hide_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="@{(view) -> handler.clickButtonVisible()}"
+                android:text="GONE" />
+
+            <Button
+                android:id="@+id/btn_fetch_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="@{(view) -> handler.clickFetchEmail()}"
+                android:text="@string/email" />
+
+            <Button
+                android:id="@+id/btn_add_note"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="@{(view) -> handler.clickAddNote()}"
+                android:text="@string/add" />
+
+            <TextView
+                android:id="@+id/tvEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.emailText}"
+                android:visibility="@{viewModel.visibilityEmail}" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
         </LinearLayout>
-
     </RelativeLayout>
-
-
-    </layout>
+</layout>

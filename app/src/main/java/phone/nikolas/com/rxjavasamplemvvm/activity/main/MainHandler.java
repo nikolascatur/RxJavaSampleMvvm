@@ -32,5 +32,9 @@ public class MainHandler {
         presenter.getEmailList();
     }
 
+    public void clickAddNote(){
+        presenter.showAddNote();
+    }
+
 
 }

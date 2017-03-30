@@ -58,4 +58,8 @@ public class MainPresenter extends BasePresenter<MainView,MainViewModel> {
 
     }
 
+    public void showAddNote(){
+        view.showInputNote();
+    }
+
 }

@@ -12,4 +12,5 @@ public interface MainView {
     void onSuccessFetchData(List<String> emailData);
     void onErrorFetchData(String error);
     void moveToInputAddress();
+    void showInputNote();
 }

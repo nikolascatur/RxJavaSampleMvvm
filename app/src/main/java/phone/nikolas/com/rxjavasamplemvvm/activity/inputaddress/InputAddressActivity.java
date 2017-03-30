@@ -39,7 +39,6 @@ public class InputAddressActivity extends BaseActivity<ActivityInputBinding,Inpu
     protected void initViewModel() {
         viewModel = new InputAddressViewModel();
         binding.setViewModel(viewModel);
-//        binding.setHandler(new InputAddressHandler());
     }
 
     @Override
@@ -59,8 +58,8 @@ public class InputAddressActivity extends BaseActivity<ActivityInputBinding,Inpu
 
     @Override
     public void addAdressAction(List<Address> address) {
-        Log.e("TAG", "addAdressAction: MASSSUKK ADRESSSSSSSS  " );
         RvInputAddressAdapter adapter = new RvInputAddressAdapter(address);
+//        Log.d("TAG", "masukkkkkkkk  "+address.get(1).getName())
         binding.listAddress.setAdapter(adapter);
     }
 }

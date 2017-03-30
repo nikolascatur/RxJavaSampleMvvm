@@ -13,6 +13,7 @@ import javax.inject.Inject;
 import phone.nikolas.com.rxjavasamplemvvm.BaseApp;
 import phone.nikolas.com.rxjavasamplemvvm.R;
 import phone.nikolas.com.rxjavasamplemvvm.activity.inputaddress.InputAddressActivity;
+import phone.nikolas.com.rxjavasamplemvvm.activity.note.NoteActivity;
 import phone.nikolas.com.rxjavasamplemvvm.adapter.RecycleViewAdapter;
 import phone.nikolas.com.rxjavasamplemvvm.base.BaseActivity;
 import phone.nikolas.com.rxjavasamplemvvm.databinding.ActivityMainBinding;
@@ -20,7 +21,7 @@ import phone.nikolas.com.rxjavasamplemvvm.depen.componen.AppComponent;
 import phone.nikolas.com.rxjavasamplemvvm.networking.NetworkService;
 import phone.nikolas.com.rxjavasamplemvvm.networking.Service;
 
-public class MainActivity extends BaseActivity<ActivityMainBinding,MainViewModel,MainPresenter> implements MainView {
+public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewModel, MainPresenter> implements MainView {
 
     @Inject
     public Service service;
@@ -29,13 +30,13 @@ public class MainActivity extends BaseActivity<ActivityMainBinding,MainViewModel
     @Override
     protected void initInjection() {
 
-        ((BaseApp)getApplication()).getmAppComponent().inject(this);
+        ((BaseApp) getApplication()).getmAppComponent().inject(this);
     }
 
     //set binging dengan layoutnya
     @Override
     protected void initBinding() {
-        binding = DataBindingUtil.setContentView(this,R.layout.activity_main);
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
 
     }
 
@@ -62,7 +63,7 @@ public class MainActivity extends BaseActivity<ActivityMainBinding,MainViewModel
         init();
     }
 
-    private void init(){
+    private void init() {
         MainHandler handler = new MainHandler();
         handler.setPresenter(presenter);
         binding.setHandler(handler);
@@ -85,6 +86,12 @@ public class MainActivity extends BaseActivity<ActivityMainBinding,MainViewModel
     @Override
     public void moveToInputAddress() {
         Intent intent = new Intent(this, InputAddressActivity.class);
+        startActivity(intent);
+    }
+
+    @Override
+    public void showInputNote() {
+        Intent intent = new Intent(this, NoteActivity.class);
         startActivity(intent);
     }
 

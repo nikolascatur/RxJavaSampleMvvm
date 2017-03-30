@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="phone.nikolas.com.rxjavasamplemvvm.activity.note.ItemViewModel" />
+
+        <variable
+            name="handler"
+            type="phone.nikolas.com.rxjavasamplemvvm.activity.note.NoteHandler" />
+    </data>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tv_note"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{viewModel.noteShort}"
+            />
+    </android.support.v7.widget.CardView>
+</layout>

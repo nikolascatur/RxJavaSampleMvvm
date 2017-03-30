@@ -19,6 +19,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.inputaddress.InputAddressActivity" />
+        <activity android:name=".activity.note.NoteActivity" />
+        <activity android:name=".activity.detailnote.DetailNoteActivity" />
     </application>
 
 </manifest>

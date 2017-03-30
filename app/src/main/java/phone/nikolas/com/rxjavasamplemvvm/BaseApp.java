@@ -6,6 +6,7 @@ import dagger.internal.DaggerCollections;
 import phone.nikolas.com.rxjavasamplemvvm.depen.componen.AppComponent;
 import phone.nikolas.com.rxjavasamplemvvm.depen.componen.DaggerAppComponent;
 import phone.nikolas.com.rxjavasamplemvvm.depen.module.AppModule;
+import phone.nikolas.com.rxjavasamplemvvm.depen.module.DatabaseModule;
 import phone.nikolas.com.rxjavasamplemvvm.depen.module.NetworkModule;
 
 /**
@@ -21,6 +22,7 @@ public class BaseApp extends Application{
         setmAppComponent(DaggerAppComponent.builder()
                 .appModule(new AppModule(this))
                 .networkModule(new NetworkModule())
+                .databaseModule(new DatabaseModule())
                 .build());
     }
 

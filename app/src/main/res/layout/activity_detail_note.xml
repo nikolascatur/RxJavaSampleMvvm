@@ -1,0 +1,38 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="handler"
+            type="phone.nikolas.com.rxjavasamplemvvm.activity.detailnote.DetailNoteHandler" />
+
+        <variable
+            name="viewModel"
+            type="phone.nikolas.com.rxjavasamplemvvm.activity.detailnote.DetailNoteViewModel" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/et_input_note"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:text="@={viewModel.noteText}"
+            />
+
+        <Button
+            android:id="@+id/btn_submit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{(view)->handler.onClickButtonSubmit()}"
+            />
+
+    </LinearLayout>
+
+</layout>
