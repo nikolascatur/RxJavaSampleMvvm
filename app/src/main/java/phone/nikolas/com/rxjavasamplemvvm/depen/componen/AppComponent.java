@@ -12,7 +12,6 @@ import phone.nikolas.com.rxjavasamplemvvm.depen.module.AppModule;
 import phone.nikolas.com.rxjavasamplemvvm.depen.module.DatabaseModule;
 import phone.nikolas.com.rxjavasamplemvvm.depen.module.NetworkModule;
 import phone.nikolas.com.rxjavasamplemvvm.model.Notes;
-import phone.nikolas.com.rxjavasamplemvvm.networking.NetworkService;
 
 /**
  * Created by Pleret on 3/11/2017.

@@ -63,6 +63,7 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewMode
         init();
     }
 
+
     private void init() {
         MainHandler handler = new MainHandler();
         handler.setPresenter(presenter);

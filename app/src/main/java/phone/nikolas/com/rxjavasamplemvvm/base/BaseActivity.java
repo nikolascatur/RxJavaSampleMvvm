@@ -16,6 +16,7 @@ public abstract class BaseActivity<B,V,P> extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         initInjection();
         initBinding();
         initViewModel();

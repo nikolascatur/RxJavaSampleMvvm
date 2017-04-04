@@ -13,6 +13,7 @@ import phone.nikolas.com.rxjavasamplemvvm.activity.inputaddress.InputAddressView
 import phone.nikolas.com.rxjavasamplemvvm.activity.inputaddress.ItemInputViewModel;
 import phone.nikolas.com.rxjavasamplemvvm.databinding.ItemInputBinding;
 import phone.nikolas.com.rxjavasamplemvvm.model.Address;
+import phone.nikolas.com.rxjavasamplemvvm.model.People;
 
 /**
  * Created by Pleret on 3/17/2017.
@@ -20,10 +21,10 @@ import phone.nikolas.com.rxjavasamplemvvm.model.Address;
 
 public class RvInputAddressAdapter extends RecyclerView.Adapter<RvInputAddressAdapter.InputAddressHolder> {
 
-    private List<Address> address;
+    private List<People> peoples;
 
-    public RvInputAddressAdapter(List<Address> address){
-        this.address = address;
+    public RvInputAddressAdapter(List<People> people){
+        this.peoples = people;
     }
     @Override
     public InputAddressHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -33,14 +34,14 @@ public class RvInputAddressAdapter extends RecyclerView.Adapter<RvInputAddressAd
 
     @Override
     public void onBindViewHolder(InputAddressHolder holder, int position) {
-        Address tmp = address.get(position);
+        People tmp = peoples.get(position);
         Log.e("TAG", "BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB ");
-        holder.binding.setViewModel(new ItemInputViewModel(tmp.getName(),tmp.getAddress()));
+        holder.binding.setViewModel(new ItemInputViewModel(tmp.getNama(),tmp.getAlamat()));
     }
 
     @Override
     public int getItemCount() {
-        return address.size();
+        return peoples.size();
     }
 
     public static class InputAddressHolder extends RecyclerView.ViewHolder{

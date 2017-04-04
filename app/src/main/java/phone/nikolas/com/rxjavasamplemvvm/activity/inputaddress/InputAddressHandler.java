@@ -24,9 +24,10 @@ public class InputAddressHandler {
     public void clickButtonSubmit() {
         Log.e("TAG", "clickButtonSubmit: ");
         presenter.addAddress();
-        for (Address address : presenter.getListAddres()
+        presenter.updatePeopleList();
+        /*for (Address address : presenter.getListAddres()
                 ) {
             Log.d("addButton", address.getName() + "  " + address.getAddress());
-        }
+        }*/
     }
 }

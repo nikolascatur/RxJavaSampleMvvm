@@ -72,13 +72,11 @@ public class NoteActivity  extends BaseActivity<ActivityNoteBinding,NoteViewMode
 
     @Override
     public List<Note> listNote() {
-        return listNote.getNoteList(); //((BaseApp)getApplication()).getmAppComponent().getNotes().getNoteList();
+        return listNote.getNoteList();
     }
 
     @Override
     public void updateList() {
-
-//        final Context activityContext = this;
         RecycleNoteAdapter adapter = new RecycleNoteAdapter(listNote(), new RecycleNoteAdapter.OnItemNoteListener() {
             @Override
             public void editDetailData(int position) {
@@ -91,10 +89,4 @@ public class NoteActivity  extends BaseActivity<ActivityNoteBinding,NoteViewMode
 
         binding.rvListNote.setAdapter(adapter);
     }
-/*
-    @Override
-    public void updateList(List<String> data) {
-        RecycleViewAdapter adapter = new RecycleViewAdapter(data);
-
-    }*/
 }

@@ -3,8 +3,12 @@ package phone.nikolas.com.rxjavasamplemvvm.activity.inputaddress;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.inject.Inject;
+
+import io.realm.Realm;
 import phone.nikolas.com.rxjavasamplemvvm.base.BasePresenter;
 import phone.nikolas.com.rxjavasamplemvvm.model.Address;
+import phone.nikolas.com.rxjavasamplemvvm.model.People;
 
 /**
  * Created by Pleret on 3/14/2017.
@@ -12,17 +16,25 @@ import phone.nikolas.com.rxjavasamplemvvm.model.Address;
 
 public class InputAddressPresenter extends BasePresenter<InputAdressView, InputAddressViewModel> {
 
-    private List<Address> listAddres = new ArrayList<Address>();
+
+    private List<People> listAddres = new ArrayList<People>();
 
     public void addAddress() {
         Address tmp = new Address();
         String nm = viewModel.getName();
         String add = viewModel.getAddress();
 
-        view.addAdressAction(getListAddres());
+        view.insertPeople(nm,add);
+        
+        /*view.addAdressAction(getListAddres());
         tmp.setName(viewModel.getName());
         tmp.setAddress(viewModel.getAddress());
-        getListAddres().add(tmp);
+        getListAddres().add(tmp);*/
+    }
+
+    public void updatePeopleList(){
+        listAddres = view.getAllPeople();
+        view.updatePeopleList(listAddres);
     }
 
 
@@ -35,11 +47,11 @@ public class InputAddressPresenter extends BasePresenter<InputAdressView, InputA
     }
 
 
-    public List<Address> getListAddres() {
+    public List<People> getListAddres() {
         return listAddres;
     }
 
-    public void setListAddres(List<Address> listAddres) {
+    public void setListAddres(List<People> listAddres) {
         this.listAddres = listAddres;
     }
 }

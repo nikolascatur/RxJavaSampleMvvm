@@ -3,6 +3,8 @@ package phone.nikolas.com.rxjavasamplemvvm;
 import android.app.Application;
 
 import dagger.internal.DaggerCollections;
+import io.realm.Realm;
+import io.realm.RealmConfiguration;
 import phone.nikolas.com.rxjavasamplemvvm.depen.componen.AppComponent;
 import phone.nikolas.com.rxjavasamplemvvm.depen.componen.DaggerAppComponent;
 import phone.nikolas.com.rxjavasamplemvvm.depen.module.AppModule;
@@ -19,6 +21,7 @@ public class BaseApp extends Application{
     @Override
     public void onCreate() {
         super.onCreate();
+
         setmAppComponent(DaggerAppComponent.builder()
                 .appModule(new AppModule(this))
                 .networkModule(new NetworkModule())
@@ -33,4 +36,6 @@ public class BaseApp extends Application{
     public void setmAppComponent(AppComponent mAppComponent) {
         this.mAppComponent = mAppComponent;
     }
+
+
 }

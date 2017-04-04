@@ -79,7 +79,6 @@
             android:layout_alignParentBottom="true"
             android:onClick="@{(view) -> handler.clickButtonSubmit()}"
             android:text="@string/submit"
-            android:visibility="@{viewModel.isVisible ? View.VISIBLE:View.GONE}"
             />
 
     </RelativeLayout>
