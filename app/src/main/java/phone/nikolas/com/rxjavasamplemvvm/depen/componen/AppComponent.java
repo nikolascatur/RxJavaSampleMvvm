@@ -10,6 +10,7 @@ import phone.nikolas.com.rxjavasamplemvvm.activity.main.MainActivity;
 import phone.nikolas.com.rxjavasamplemvvm.activity.note.NoteActivity;
 import phone.nikolas.com.rxjavasamplemvvm.depen.module.AppModule;
 import phone.nikolas.com.rxjavasamplemvvm.depen.module.DatabaseModule;
+import phone.nikolas.com.rxjavasamplemvvm.depen.module.DbModule;
 import phone.nikolas.com.rxjavasamplemvvm.depen.module.NetworkModule;
 import phone.nikolas.com.rxjavasamplemvvm.model.Notes;
 
@@ -18,7 +19,7 @@ import phone.nikolas.com.rxjavasamplemvvm.model.Notes;
  */
 
 @Singleton
-@Component(modules = {AppModule.class, NetworkModule.class, DatabaseModule.class})
+@Component(modules = {AppModule.class, NetworkModule.class, DatabaseModule.class, DbModule.class})
 public interface AppComponent {
     void inject(MainActivity mainActivity);
     void inject(InputAddressActivity inputAddressActivity);

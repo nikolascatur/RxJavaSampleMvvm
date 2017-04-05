@@ -21,6 +21,7 @@ import phone.nikolas.com.rxjavasamplemvvm.R;
 import phone.nikolas.com.rxjavasamplemvvm.adapter.RvInputAddressAdapter;
 import phone.nikolas.com.rxjavasamplemvvm.base.BaseActivity;
 import phone.nikolas.com.rxjavasamplemvvm.databinding.ActivityInputBinding;
+import phone.nikolas.com.rxjavasamplemvvm.db.RealmConnection;
 import phone.nikolas.com.rxjavasamplemvvm.model.Address;
 import phone.nikolas.com.rxjavasamplemvvm.model.People;
 
@@ -31,7 +32,8 @@ import phone.nikolas.com.rxjavasamplemvvm.model.People;
 public class InputAddressActivity extends BaseActivity<ActivityInputBinding,InputAddressViewModel,InputAddressPresenter>
         implements InputAdressView{
 
-    Realm realm;
+    @Inject
+    RealmConnection realm;
 
     @Override
     protected void initInjection() {
@@ -63,19 +65,9 @@ public class InputAddressActivity extends BaseActivity<ActivityInputBinding,Inpu
         handler.setPresenter(presenter);
         binding.setHandler(handler);
         binding.listAddress.setLayoutManager(new LinearLayoutManager(this));
-        initRealm();
 
+        realm.initRealm(this.getApplicationContext());
         presenter.updatePeopleList();
-    }
-
-    protected void initRealm() {
-        Realm.init(this.getApplicationContext());
-        RealmConfiguration config = new RealmConfiguration.Builder()
-                .schemaVersion(2)
-                .deleteRealmIfMigrationNeeded()
-                .build();
-        Realm.setDefaultConfiguration(config);
-        realm = Realm.getDefaultInstance();
     }
 
     @Override
@@ -86,24 +78,12 @@ public class InputAddressActivity extends BaseActivity<ActivityInputBinding,Inpu
 
     @Override
     public void insertPeople(String nama, String alamat) {
-        realm.beginTransaction();
-        People people = realm.createObject(People.class);
-        people.setNama(nama);
-        people.setAlamat(alamat);
-        realm.commitTransaction();
+        realm.insert(nama,alamat);
     }
 
     @Override
     public List<People> getAllPeople() {
-        List<People> peoples = new ArrayList<People>();
-        Log.d("TAG","  value realm "+realm+"  ");
-        RealmQuery<People> query = realm.where(People.class);
-        RealmResults<People> result = query.findAll();
-        for(People peop : result ){
-            peoples.add(peop);
-        }
-
-        return peoples;
+        return realm.getAllData();
     }
 
     @Override

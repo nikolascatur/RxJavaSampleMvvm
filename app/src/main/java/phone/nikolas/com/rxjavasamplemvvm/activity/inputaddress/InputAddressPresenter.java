@@ -1,11 +1,10 @@
 package phone.nikolas.com.rxjavasamplemvvm.activity.inputaddress;
 
+
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.inject.Inject;
 
-import io.realm.Realm;
 import phone.nikolas.com.rxjavasamplemvvm.base.BasePresenter;
 import phone.nikolas.com.rxjavasamplemvvm.model.Address;
 import phone.nikolas.com.rxjavasamplemvvm.model.People;
@@ -25,22 +24,13 @@ public class InputAddressPresenter extends BasePresenter<InputAdressView, InputA
         String add = viewModel.getAddress();
 
         view.insertPeople(nm,add);
-        
-        /*view.addAdressAction(getListAddres());
-        tmp.setName(viewModel.getName());
-        tmp.setAddress(viewModel.getAddress());
-        getListAddres().add(tmp);*/
     }
 
     public void updatePeopleList(){
-        listAddres = view.getAllPeople();
+        listAddres = view.getAllPeople(); //view.getAllPeople();
         view.updatePeopleList(listAddres);
     }
 
-
-//    public String getName() {
-//        return viewModel.getName();
-//    }
 
     public String getAddress() {
         return viewModel.getAddress();
